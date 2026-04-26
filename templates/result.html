@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center; 
+            margin-top: 80px; 
+            padding: 20px;
+            background: #0f1419;
+            min-height: 100vh;
+        }
+        .result-card { 
+            background: linear-gradient(135deg, #1a1f2e 0%, #16213e 100%);
+            padding: 60px 40px; 
+            border-radius: 16px; 
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid #2d3748;
+        }
+        h1 { 
+            color: #4ade80; 
+            margin: 0 0 25px 0;
+            font-size: 26px;
+        }
+        .score { 
+            font-size: 80px; 
+            font-weight: 900; 
+            color: #4ade80;
+            margin: 30px 0;
+            text-shadow: 0 4px 12px rgba(74, 222, 128, 0.2);
+        }
+        .score-label {
+            font-size: 18px;
+            color: #9ca3af;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        a { 
+            display: inline-block; 
+            margin-top: 40px; 
+            padding: 14px 40px; 
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: #0f1419; 
+            text-decoration: none; 
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        a:hover { 
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+        }
+        a:active {
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="result-card">
+        <h1>✨ Prediction Result</h1>
+        <p class="score-label">Predicted {{ subject }} Score</p>
+        <div class="score">{{ prediction }}/100</div>
+        <a href="/">← Make Another Prediction</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Grade Predictor</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 700px;
+        margin: 30px auto;
+        padding: 20px;
+        background: #0f1419;
+        color: #e0e0e0;
+      }
+      .container {
+        background: #1a1f2e;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        border: 1px solid #2d3748;
+      }
+      h1 {
+        color: #4ade80;
+        margin-bottom: 10px;
+        font-size: 28px;
+      }
+      .info {
+        color: #9ca3af;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      form {
+        display: grid;
+        gap: 18px;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #e0e0e0;
+        font-size: 15px;
+      }
+      .helper-text {
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 4px;
+      }
+      input {
+        padding: 12px 14px;
+        font-size: 16px;
+        border: 1px solid #374151;
+        border-radius: 8px;
+        background: #111827;
+        color: #f3f4f6;
+        transition: all 0.3s ease;
+      }
+      input:focus {
+        outline: none;
+        border-color: #4ade80;
+        background: #1a202c;
+        box-shadow: 0 0 8px rgba(74, 222, 128, 0.2);
+      }
+      input::placeholder {
+        color: #4b5563;
+      }
+      input[type="submit"] {
+        background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+        color: #0f1419;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+        margin-top: 15px;
+        padding: 13px;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(74, 222, 128, 0.3);
+      }
+      input[type="submit"]:active {
+        transform: translateY(0);
+      }
+      .calculator {
+        background: linear-gradient(135deg, #1e3a2f 0%, #15263a 100%);
+        padding: 18px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        border-left: 4px solid #4ade80;
+        border: 1px solid #2d5a4f;
+      }
+      .calculator h3 {
+        margin-top: 0;
+        color: #4ade80;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .calculator p {
+        margin: 6px 0;
+        font-size: 14px;
+        color: #d1d5db;
+      }
+      .feature-legend {
+        background: #111827;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 25px;
+        border: 1px solid #2d3748;
+      }
+      .feature-legend h3 {
+        margin-top: 0;
+        color: #4ade80;
+        margin-bottom: 15px;
+        font-size: 16px;
+      }
+      .feature-legend p {
+        margin: 8px 0;
+        color: #d1d5db;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .feature-legend strong {
+        color: #e0e0e0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎓 Student Grade Predictor</h1>
+      <p class="info">Predict any student's score based on multiple factors</p>
+
+      <form method="post">
+        <div class="form-group">
+          <label>📖 Subject Name:</label>
+          <input
+            type="text"
+            name="subject"
+            placeholder="e.g., Math, Science, History"
+            required
+          />
+          <span class="helper-text">Any subject name</span>
+        </div>
+
+        <div class="form-group">
+          <label>📚 Study Hours Per Week:</label>
+          <input
+            type="number"
+            name="study_hours"
+            min="0"
+            step="1"
+            placeholder="e.g., 25"
+            required
+          />
+          <span class="helper-text"
+            >Total hours in the entire week (e.g., 5 hrs/day × 5 days = 25
+            hrs)</span
+          >
+        </div>
+
+        <div class="form-group">
+          <label>🏫 Attendance (%) [0-100]:</label>
+          <input
+            type="number"
+            name="attendance"
+            min="0"
+            max="100"
+            step="1"
+            placeholder="e.g., 90"
+            required
+          />
+          <span class="helper-text">Class attendance percentage</span>
+        </div>
+
+        <div class="form-group">
+          <label>📝 Previous Marks [0-100]:</label>
+          <input
+            type="number"
+            name="previous_marks"
+            min="0"
+            max="100"
+            step="0.5"
+            placeholder="e.g., 75"
+            required
+          />
+          <span class="helper-text">Previous exam/test marks</span>
+        </div>
+
+        <div class="form-group">
+          <label>😴 Sleep Hours Per Night [4-12]:</label>
+          <input
+            type="number"
+            name="sleep"
+            min="4"
+            max="12"
+            step="0.5"
+            placeholder="e.g., 7.5"
+            required
+          />
+          <span class="helper-text">Average hours of sleep per night</span>
+        </div>
+
+        <div class="form-group">
+          <label>📱 Social Media Time Per Day [0-12]:</label>
+          <input
+            type="number"
+            name="social_media"
+            min="0"
+            max="12"
+            step="0.5"
+            placeholder="e.g., 3"
+            required
+          />
+          <span class="helper-text"
+            >Average hours spent on social media daily</span
+          >
+        </div>
+
+        <div class="form-group">
+          <label>😰 Stress Level [0-100]:</label>
+          <input
+            type="number"
+            name="stress"
+            min="0"
+            max="100"
+            step="1"
+            placeholder="e.g., 45"
+            required
+          />
+          <span class="helper-text"
+            >Self-rated stress level (0 = no stress, 100 = maximum stress)</span
+          >
+        </div>
+
+        <input type="submit" value="📊 Predict Score" />
+      </form>
+
+      <div class="feature-legend">
+        <h3>📊 Feature Impact Guide:</h3>
+        <p>
+          <strong>study_hours (weekly)</strong> → Positive 📈 (More study =
+          Higher score)
+        </p>
+        <p>
+          <strong>attendance</strong> → Positive 📈 (Higher attendance = Higher
+          score)
+        </p>
+        <p>
+          <strong>previous_marks</strong> → Strong Positive 🔥 (Strongest
+          impact!)
+        </p>
+        <p><strong>sleep</strong> → Balanced ⚖️ (7-8 hours is optimal)</p>
+        <p>
+          <strong>social_media</strong> → Negative 📉 (Less time = Higher score)
+        </p>
+        <p>
+          <strong>stress</strong> → Mixed ⚖️ (Some stress helps, too much hurts)
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
